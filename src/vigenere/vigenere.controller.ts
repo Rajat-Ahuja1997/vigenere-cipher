@@ -7,7 +7,9 @@ export class VigenereController {
   constructor(private vigenereService: VigenereService) {}
 
   @Post()
-  createCipher(@Body() createCipherDto: CreateCipherDto): string {
-    return this.vigenereService.createCipher(createCipherDto);
+  createCipher(@Body() createCipherDto: CreateCipherDto) {
+    const cipher = this.vigenereService.createCipher(createCipherDto);
+
+    return JSON.stringify(cipher);
   }
 }
